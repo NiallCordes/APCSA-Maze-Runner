@@ -96,7 +96,7 @@ public class MazeRunner{
         // Takes in the direction String the user entered in and returns if there is a pit ahead
         if(myMap.isThereAPit(userDirection) == true){
        
-            System.out.print("Jeepers! There's a pit ahead. Would you like to jump over it?  ");
+            System.out.print("Warning! There's a pit ahead. Would you like to jump over it? (yes or no)  ");
             String jump = input.next();
             if(jump.equalsIgnoreCase("yes"))
                myMap.jumpOverPit(userDirection);
