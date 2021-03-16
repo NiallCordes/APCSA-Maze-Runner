@@ -6,12 +6,14 @@ public class MazeRunner{
     public static Maze myMap = new Maze();
     public static int userSteps = 0;
     public static void main(String[] args){
-        /**Part 1*/
+        // Part 1 - Let the User solve the Maze
         intro();
-        while (myMap.didIWin() == false){ //Wall ting
-            
+
+        // Returns true if the mentioned space is free, false if there is a wall
+        while (myMap.didIWin() == false){ // Wall
+            // Part 2 - Move Limit
             String userDirection = userMove();
-            
+            // Part 3 - Watch out for Pits
             if (userDirection.equals("R") || userDirection.equals("L") || userDirection.equals("U") || userDirection.equals("D"))
                 navigatePit(userDirection);
         }
@@ -29,10 +31,10 @@ public class MazeRunner{
     public static void movesMessage(int moves){
         switch (moves){
             case 50:
-                    System.out.println("Jeepers! You've made 50 moves, you have 50 remaining before the maze exit closes");
+                    System.out.println("Warning! You've made 50 moves, you have 50 remaining before the maze exit closes");
                 break;
             case 75:
-                    System.out.println("Jeepers! You've made 75 moves, you only have 25 moves left to escape.");
+                    System.out.println("Warning! You've made 75 moves, you only have 25 moves left to escape.");
                 break;
             case 90:
                     System.out.println("We better hurry! You've made 90 moves, you only have 10 moves left to escape!!");
@@ -42,6 +44,9 @@ public class MazeRunner{
                 break;
             default:
                 break;
+
+            // Prints message after a certain number of moves
+            // then counts moves
         }
     }
 
@@ -88,6 +93,7 @@ public class MazeRunner{
 
     public static void navigatePit(String userDirection){
         Scanner input = new Scanner(System.in);
+        // Takes in the direction String the user entered in and returns if there is a pit ahead
         if(myMap.isThereAPit(userDirection) == true){
        
             System.out.print("Jeepers! There's a pit ahead. Would you like to jump over it?  ");
