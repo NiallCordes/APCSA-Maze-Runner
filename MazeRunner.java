@@ -1,11 +1,9 @@
-import java.util.*;
+import java.util.*; //import statement
 
-
-
-public class MazeRunner{
+public class MazeRunner{ // the constructor that sets the variable
     public static Maze myMap = new Maze();
-    public static int userSteps = 0;
-    public static void main(String[] args){
+    public static int userSteps = 0; // set the number of moves to 0
+    public static void main(String[] args){ // the main method
         // Part 1 - Let the User solve the Maze
         intro();
 
@@ -15,18 +13,20 @@ public class MazeRunner{
             String userDirection = userMove();
             // Part 3 - Watch out for Pits
             if (userDirection.equals("R") || userDirection.equals("L") || userDirection.equals("U") || userDirection.equals("D"))
-                navigatePit(userDirection);
+                navigatePit(userDirection); // calls the navigate pit method
         }
             if (myMap.didIWin() == true){
-                System.out.print("Rooby Rooby Roo! You made it out of the maze. Time for a Scooby Snack!");
+                System.out.print("Rooby Rooby Roo! You made it out of the maze. Time for a Scooby Snack!"); // prints a congratulating message
                 System.out.println("You've won with" + MazeRunner.userSteps + " moves.");
         }
     }
+    
+    // The introduction
     public static void intro(){
-        System.out.println("Looks like we've got another mystery on our hands! A maze has appeared.");
-        System.out.println("Your current position:");
+        System.out.println("Looks like we've got another mystery on our hands! A maze has appeared."); // welcome message
+        System.out.println("Your current position:"); // prints your current place in the map
         myMap.printMap();
-    }
+    } // Welcome the user into the program and print map
 
     public static void movesMessage(int moves){
         switch (moves){
@@ -50,12 +50,13 @@ public class MazeRunner{
         }
     }
 
+    // takes a direction to move to, and then checks if the direction is possible or a valid move
     public static String userMove(){
-        Scanner input = new Scanner(System.in);
-        String direction = "";
+        Scanner input = new Scanner(System.in); // prints out current move the user made
+        String direction = ""; // gets the mover's choice
         do{
             if(MazeRunner.userSteps != 101)
-           {   System.out.print("Where would you like to move? (R, L, U, D)");
+           {   System.out.print("Where would you like to move? (R, L, U, D)"); //laying out the possible move options
                direction = input.next();
         }
 
@@ -63,17 +64,17 @@ public class MazeRunner{
                 
                 movesMessage(++MazeRunner.userSteps);
 
-                if (myMap.canIMoveRight() == true && direction.equals("R")){
-                    myMap.moveRight();
+                if (myMap.canIMoveRight() == true && direction.equals("R")){ // ensures the mover can move right
+                    myMap.moveRight(); // moves right
                 }
                 else if (myMap.canIMoveLeft() == true && direction.equals("L")){
-                         myMap.moveLeft();
+                         myMap.moveLeft(); // moves left
                 }
                 else if (myMap.canIMoveUp() == true && direction.equals("U")){
-                         myMap.moveUp();
+                         myMap.moveUp(); // moves up
                 }
                 else if (myMap.canIMoveDown() == true && direction.equals("D")){
-                         myMap.moveDown();
+                         myMap.moveDown(); // moves down
                 }
                 else{ //Part 2: Move Limit
                     if (MazeRunner.userSteps != 101){
@@ -100,14 +101,14 @@ public class MazeRunner{
             String jump = input.next();
             if(jump.equalsIgnoreCase("yes"))
                myMap.jumpOverPit(userDirection);
-            else{
+            else{ // Returning true
            
             System.out.println("You fell into the pit. R.I.P.");
-            System.exit(0);
+            System.exit(0); // Returning false
             }
     }
             else{
-            System.out.println("Yikes, you've hit a wall.");
+            System.out.println("Yikes, you've hit a wall."); // game over
         }
     }
 }
