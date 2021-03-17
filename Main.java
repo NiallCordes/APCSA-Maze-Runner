@@ -38,3 +38,21 @@ public class Main {
        {'.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'},
        {'.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'},
        {'.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'},
+       and more
+*/
+
+// The updated coordinates are x1,y1 = "x" and x2,y2 = "x"
+
+// Since matrix is organized into different structures, a Cell would be a good implementation as a place carrying all
+// the characters of x
+
+// I would then reitterate the normal and cheat gameplay Strings and print out Starting Point and Ending Point
+// for the x value to go to (like maximum and minimum)
+
+// The Breadth Search Algorithm comes into play when for making the grid modeled by the matrix
+        // 1. start by putting all the variables together in parenthesis (character, grid, integer, start, end)
+        // 2. organize start and end by 0 to 1 in coordinates
+        // 3. classify that a cell includes grid length plus additonal length per additional move
+        // 4. use an if statement to show how it works
+
+        // 5. then use your Linkedlist imported statement
